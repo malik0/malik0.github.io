@@ -7,12 +7,53 @@ layout: default
     <h1 class="page-heading">{{ page.title }}</h1>
   {%- endif -%}
 
-  <!-- Cyberpunk-styled welcome section -->
-  <div class="cyberpunk-welcome">
-    <div class="glitch-container">
-      <h2 class="glitch" data-text="WELCOME TO CYBERPUNK">WELCOME TO CYBERPUNK</h2>
+  <!-- Cyberpunk-styled quote slider -->
+  <div class="cyberpunk-quote-slider">
+    <div class="quote-container">
+      <div class="quote-slide active" data-index="0">
+        <div class="glitch-container">
+          <p class="quote glitch cyber-text" data-text="The future is already here – it's just not evenly distributed.">The future is already here – it's just not evenly distributed.</p>
+        </div>
+        <p class="quote-author">- William Gibson</p>
+      </div>
+      <div class="quote-slide" data-index="1">
+        <div class="glitch-container">
+          <p class="quote glitch cyber-text" data-text="It's not the strongest that survive, but the most responsive to change.">It's not the strongest that survive, but the most responsive to change.</p>
+        </div>
+        <p class="quote-author">- Blade Runner, 2019</p>
+      </div>
+      <div class="quote-slide" data-index="2">
+        <div class="glitch-container">
+          <p class="quote glitch cyber-text" data-text="The only way to deal with an unfree world is to become so absolutely free that your very existence is an act of rebellion.">The only way to deal with an unfree world is to become so absolutely free that your very existence is an act of rebellion.</p>
+        </div>
+        <p class="quote-author">- The Matrix, 1999</p>
+      </div>
+      <div class="quote-slide" data-index="3">
+        <div class="glitch-container">
+          <p class="quote glitch cyber-text" data-text="Mankind has always dreamed of immortality. Now it's a reality in cyberspace—but is that where we want to spend eternity?">Mankind has always dreamed of immortality. Now it's a reality in cyberspace—but is that where we want to spend eternity?</p>
+        </div>
+        <p class="quote-author">- Ghost in the Shell, 1995</p>
+      </div>
     </div>
-    <p class="cyberpunk-intro">{{ site.description }}</p>
+    
+    <!-- Navigation Arrows -->
+    <button class="quote-nav-arrow prev">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <button class="quote-nav-arrow next">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    
+    <div class="quote-navigation">
+      <button class="quote-nav-dot active" data-index="0"></button>
+      <button class="quote-nav-dot" data-index="1"></button>
+      <button class="quote-nav-dot" data-index="2"></button>
+      <button class="quote-nav-dot" data-index="3"></button>
+    </div>
   </div>
 
   <!-- Cyberpunk-styled terminal section -->

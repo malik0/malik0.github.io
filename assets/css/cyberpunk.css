@@ -199,6 +199,217 @@ p {
   box-shadow: 0 0 15px rgba(153, 0, 255, 0.5);
 }
 
+/* Cyberpunk Quote Slider */
+.cyberpunk-quote-slider {
+  margin: 2rem 0;
+  padding: 2rem;
+  border: 1px solid var(--neon-blue);
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(10, 10, 32, 0.8);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.15);
+}
+
+.cyberpunk-quote-slider::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent 48%, var(--neon-blue) 49%, var(--neon-blue) 51%, transparent 52%);
+  background-size: 10px 10px;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+.cyberpunk-quote-slider::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(to right, 
+      rgba(255, 0, 255, 0.1) 0%, 
+      transparent 20%, 
+      transparent 80%, 
+      rgba(0, 255, 255, 0.1) 100%);
+  pointer-events: none;
+}
+
+.quote-container {
+  position: relative;
+  min-height: 200px;
+  overflow: hidden;
+  padding: 1rem 0;
+}
+
+.quote-slide {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  visibility: hidden;
+  text-align: center;
+}
+
+.quote-slide.active {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+.quote {
+  position: relative;
+  color: var(--text-color);
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.quote::before {
+  content: """;
+  position: absolute;
+  top: -0.5rem;
+  left: -1rem;
+  font-size: 4rem;
+  color: var(--neon-purple);
+  opacity: 0.3;
+}
+
+.quote::after {
+  content: """;
+  position: absolute;
+  bottom: -2rem;
+  right: -1rem;
+  font-size: 4rem;
+  color: var(--neon-purple);
+  opacity: 0.3;
+}
+
+.quote-author {
+  color: var(--neon-green);
+  font-size: 1.2rem;
+  font-style: italic;
+  margin-top: 1.5rem;
+  text-align: right;
+  padding-right: 2rem;
+  position: relative;
+  display: inline-block;
+  text-shadow: 0 0 10px rgba(0, 255, 102, 0.5);
+}
+
+.quote-author::before {
+  content: "—";
+  margin-right: 0.5rem;
+}
+
+.quote-navigation {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 2rem;
+}
+
+.quote-nav-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--secondary-text);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0.5;
+  position: relative;
+}
+
+.quote-nav-dot:hover {
+  background-color: var(--neon-pink);
+  opacity: 0.8;
+  transform: scale(1.2);
+}
+
+.quote-nav-dot.active {
+  background-color: var(--neon-blue);
+  box-shadow: 0 0 10px var(--neon-blue);
+  opacity: 1;
+}
+
+.quote-nav-dot.active::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 50%;
+  border: 1px solid var(--neon-blue);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { 
+    transform: scale(1); 
+    opacity: 1; 
+  }
+  50% { 
+    transform: scale(1.5); 
+    opacity: 0; 
+  }
+  100% { 
+    transform: scale(1); 
+    opacity: 0; 
+  }
+}
+
+/* Quote Slider Navigation Arrows */
+.quote-nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: var(--neon-blue);
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+  opacity: 0.5;
+  z-index: 10;
+}
+
+.quote-nav-arrow:hover {
+  opacity: 1;
+  color: var(--neon-pink);
+}
+
+.quote-nav-arrow.prev {
+  left: 1rem;
+}
+
+.quote-nav-arrow.next {
+  right: 1rem;
+}
+
+.quote-nav-arrow svg {
+  width: 24px;
+  height: 24px;
+  filter: drop-shadow(0 0 5px var(--neon-blue));
+}
+
+.quote-nav-arrow:hover svg {
+  filter: drop-shadow(0 0 8px var(--neon-pink));
+  transform: scale(1.2);
+}
+
 /* Cyberpunk Welcome Section */
 .cyberpunk-welcome {
   margin: 2rem 0;
@@ -771,5 +982,43 @@ input, textarea, select {
   
   .footer-col-wrapper {
     flex-direction: column;
+  }
+}
+
+/* Cyber Text Effect */
+.cyber-text {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  animation: reveal 2s ease forwards;
+}
+
+@keyframes reveal {
+  0% {
+    background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    opacity: 0.7;
+    text-shadow: none;
+    filter: blur(8px);
+    transform: scale(0.9);
+  }
+  
+  40% {
+    filter: blur(5px);
+  }
+  
+  70% {
+    filter: blur(0);
+  }
+  
+  100% {
+    background: none;
+    background-clip: initial;
+    -webkit-background-clip: initial;
+    color: var(--text-color);
+    opacity: 1;
+    transform: scale(1);
   }
 } 
