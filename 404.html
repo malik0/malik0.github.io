@@ -1,25 +1,55 @@
 ---
 permalink: /404.html
-layout: page
+layout: default
 ---
 
-<style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
+<div class="cyberpunk-error-page">
+  <div class="glitch-container">
+    <h1 class="glitch" data-text="404">404</h1>
+  </div>
+  
+  <div class="cyberpunk-terminal">
+    <div class="terminal-header">
+      <span class="terminal-button red"></span>
+      <span class="terminal-button yellow"></span>
+      <span class="terminal-button green"></span>
+      <span class="terminal-title">error.exe</span>
+    </div>
+    <div class="terminal-body">
+      <p class="terminal-line"><span class="terminal-prompt">></span> ERROR: Page not found</p>
+      <p class="terminal-line"><span class="terminal-prompt">></span> Location: {{ page.url }}</p>
+      <p class="terminal-line"><span class="terminal-prompt">></span> Signal lost in cyberspace...</p>
+      <p class="terminal-line"><span class="terminal-prompt">></span> Initiating return sequence to <a href="{{ '/' | relative_url }}">home</a>...</p>
+    </div>
+  </div>
+  
+  <p class="cyberpunk-message">The page you're looking for has been disconnected from the network or never existed in this reality.</p>
+  
+  <a href="{{ '/' | relative_url }}" class="cyberpunk-button">
+    <span>Return to Home</span>
+    <svg viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M1 5H11M11 5L7 1M11 5L7 9" stroke="currentColor" stroke-width="2"/>
+    </svg>
+  </a>
+</div>
+
+<style>
+  .cyberpunk-error-page {
     text-align: center;
+    padding: 2rem;
   }
-  h1 {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
+  
+  .cyberpunk-error-page .glitch {
+    font-size: 8rem;
+    margin-bottom: 2rem;
+  }
+  
+  .cyberpunk-message {
+    font-size: 1.2rem;
+    margin: 2rem 0;
+    color: var(--neon-pink);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
   }
 </style>
-
-<div class="container">
-  <h1>404</h1>
-
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
-</div>

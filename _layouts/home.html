@@ -1,0 +1,74 @@
+---
+layout: default
+---
+
+<div class="home">
+  {%- if page.title -%}
+    <h1 class="page-heading">{{ page.title }}</h1>
+  {%- endif -%}
+
+  <!-- Cyberpunk-styled welcome section -->
+  <div class="cyberpunk-welcome">
+    <div class="glitch-container">
+      <h2 class="glitch" data-text="WELCOME TO CYBERPUNK">WELCOME TO CYBERPUNK</h2>
+    </div>
+    <p class="cyberpunk-intro">{{ site.description }}</p>
+  </div>
+
+  <!-- Cyberpunk-styled terminal section -->
+  <div class="cyberpunk-terminal">
+    <div class="terminal-header">
+      <span class="terminal-button red"></span>
+      <span class="terminal-button yellow"></span>
+      <span class="terminal-button green"></span>
+      <span class="terminal-title">cyberblog.exe</span>
+    </div>
+    <div class="terminal-body">
+      <p class="terminal-line"><span class="terminal-prompt">></span> Loading latest posts...</p>
+      <p class="terminal-line"><span class="terminal-prompt">></span> System online</p>
+    </div>
+  </div>
+
+  {{ content }}
+
+  {%- if site.posts.size > 0 -%}
+    <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
+    <ul class="post-list">
+      {%- for post in site.posts -%}
+      <li class="post-list-item">
+        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        <span class="post-meta">{{ post.date | date: date_format }}</span>
+        <h3>
+          <a class="post-link" href="{{ post.url | relative_url }}">
+            {{ post.title | escape }}
+          </a>
+        </h3>
+        {%- if site.show_excerpts -%}
+          <div class="post-excerpt">{{ post.excerpt }}</div>
+        {%- endif -%}
+        
+        <!-- Cyberpunk-styled read more button -->
+        <a href="{{ post.url | relative_url }}" class="cyberpunk-button">
+          <span>READ_MORE</span>
+          <svg viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 5H11M11 5L7 1M11 5L7 9" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </a>
+      </li>
+      {%- endfor -%}
+    </ul>
+
+    <!-- Cyberpunk-styled feeds section -->
+    <div class="cyberpunk-feeds">
+      <p class="feed-subscribe">
+        <a href="{{ 'feed.xml' | relative_url }}">
+          <svg class="svg-icon" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5.5 12a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zm5 0a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zm5 0a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/>
+          </svg>
+          <span>{{ site.subscribe_text | default: "Subscribe" }}</span>
+        </a>
+      </p>
+    </div>
+  {%- endif -%}
+
+</div> 
