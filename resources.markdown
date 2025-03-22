@@ -165,6 +165,10 @@ permalink: /resources/
 <div class="resource-section">
   <h2 class="cyber-heading">Hardware</h2>
   <ul class="resource-list">
+  <li class="resource-item">
+      <a href="https://www.zappar.com/zapbox/" target="_blank">Zapbox</a>
+      <span class="resource-desc">Zapbox XR headset</span>
+    </li>
     <li class="resource-item">
       <a href="https://www.meta.com/quest/" target="_blank">Meta Quest</a>
       <span class="resource-desc">Meta's VR headset lineup</span>
