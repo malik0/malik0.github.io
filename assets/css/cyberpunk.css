@@ -1102,4 +1102,116 @@ input, textarea, select {
   font-size: 0.9rem;
   padding-left: 0.5rem;
   border-left: 1px dashed rgba(0, 255, 255, 0.3);
+}
+
+/* VR/AR Blog Post Styling */
+.post-content h2 {
+  color: var(--neon-pink);
+  border-bottom: 1px solid var(--neon-blue);
+  padding-bottom: 0.5rem;
+  margin-top: 2.5rem;
+}
+
+.post-content ul {
+  list-style-type: none;
+  padding-left: 1.5rem;
+}
+
+.post-content ul li {
+  position: relative;
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+}
+
+.post-content ul li::before {
+  content: ">";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--neon-green);
+  font-family: 'Share Tech Mono', monospace;
+}
+
+.post-content strong {
+  color: var(--neon-blue);
+  font-weight: 700;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+}
+
+/* VR Feature Box */
+.vr-feature-box {
+  background: rgba(10, 10, 32, 0.7);
+  border: 1px solid var(--neon-purple);
+  border-left: 4px solid var(--neon-purple);
+  padding: 1.5rem;
+  margin: 2rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.vr-feature-box::before {
+  content: "VR";
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  font-size: 5rem;
+  color: var(--neon-purple);
+  opacity: 0.1;
+  font-weight: bold;
+  z-index: 0;
+}
+
+/* Numbered List Styling for Five Cool Things */
+.post-content ol {
+  counter-reset: feature-counter;
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.post-content ol li {
+  counter-increment: feature-counter;
+  margin-bottom: 1.2rem;
+  padding-left: 3rem;
+  position: relative;
+}
+
+.post-content ol li::before {
+  content: counter(feature-counter);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2rem;
+  height: 2rem;
+  background: var(--darker-bg);
+  border: 1px solid var(--neon-green);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--neon-green);
+  font-family: 'Share Tech Mono', monospace;
+  box-shadow: 0 0 8px rgba(0, 255, 102, 0.5);
+}
+
+/* VR Post Container */
+.vr-post-container {
+  position: relative;
+  padding: 1rem;
+  background: linear-gradient(to bottom right, rgba(10, 10, 32, 0.3), rgba(153, 0, 255, 0.1));
+  border-radius: 5px;
+  margin-bottom: 2rem;
+}
+
+.vr-post-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h60v60H0z' fill='none'/%3E%3Cpath d='M30 5l25 45H5z' stroke='rgba(0,255,255,0.05)' fill='none'/%3E%3C/svg%3E");
+  background-size: 60px 60px;
+  opacity: 0.2;
+  z-index: -1;
+  pointer-events: none;
 } 
